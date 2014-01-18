@@ -1,8 +1,11 @@
-gen: build clear
+build: cv cl clear
 
-build: cv.tex
-	latex cv.tex
+cv: cv.tex
+	latex $<
 	dvipdf cv.dvi
+
+cl: cl.tex
+	xelatex $<
 
 clear:
 	rm -f *.log *.dvi *.log *.out *.aux
