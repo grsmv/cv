@@ -1,11 +1,14 @@
+.PHONY: cv cl build
+
 build: cv cl clear
 
-cv: cv.tex
+cv: cv/cv.tex
 	latex $<
-	dvipdf cv.dvi
+	dvipdf cv.dvi pdf/cv.pdf
 
-cl: cl.tex
-	xelatex $<
+cl: cl/cl.tex
+	latex $<
+	dvipdf cl.dvi pdf/cl.pdf
 
 clear:
 	rm -f *.log *.dvi *.log *.out *.aux
